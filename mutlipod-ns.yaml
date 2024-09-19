@@ -1,0 +1,39 @@
+# Define the Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kube1-ns
+
+---
+
+# Define the first Pod in the my-namespace
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-1
+  namespace: kube1-ns
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: my-container-1
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+
+---
+
+# Define the second Pod in the same namespace
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-2
+  namespace: kube1-ns
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: my-container-2
+    image: nginx:latest
+    ports:
+    - containerPort: 80
