@@ -1,0 +1,21 @@
+apiVersion: apps/V1
+kind: Replica-set
+metadata:
+  name: replica-set1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+    app: my-app
+  template:
+    metadata:
+     labels:
+      app: my-app
+    spec:
+      containers: 
+      - name: replica-container
+        image: user
+        ports:
+          -  containerPort: 80
+        
+  
