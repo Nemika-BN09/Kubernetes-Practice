@@ -14,7 +14,7 @@ spec:
     spec:
       containers: 
       - name: replica-container
-        image: user
+        image: clahandevops/user:latest
         ports:
           -  containerPort: 80
         
