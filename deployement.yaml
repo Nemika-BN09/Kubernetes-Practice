@@ -13,7 +13,7 @@ spec:
         app: my-app 
     spec:
       containers: 
-        - name: deployment-C
+        - name: deployment-c
           image: nginx:latest
           ports:
             - containerPort: 80 
