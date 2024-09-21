@@ -1,0 +1,115 @@
+#namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-namespace
+
+---
+# Pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  namespace: my-namespace
+spec:
+  containers:
+  - name: my-container
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+
+---
+# ReplicaSet
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-replicaset
+  namespace: my-namespace
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+---
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+  namespace: my-namespace
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+
+---
+# Service (LoadBalancer)
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  namespace: my-namespace
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  selector:
+    app: my-app
+
+---
+# Service (NodePort)
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nodeport-service
+  namespace: my-namespace
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+    nodePort: 30080
+  selector:
+    app: my-app
+
+---
+# Service (ClusterIP)
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-clusterip-service
+  namespace: my-namespace
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  selector:
+    app: my-app
+
+

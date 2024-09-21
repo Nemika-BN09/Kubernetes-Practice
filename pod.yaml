@@ -8,3 +8,16 @@ spec:
     image: nginx:latest
     ports:
     - containerPort: 80
+
+# with namespace podyaml file 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  namespace: my-namespace
+spec:
+  containers:
+  - name: my-container
+    image: nginx:latest
+    ports:
+    - containerPort: 80
