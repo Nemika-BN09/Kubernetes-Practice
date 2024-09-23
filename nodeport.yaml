@@ -27,7 +27,7 @@ spec:
     app: node-app
   ports:
     - port: 83
-      targetport: 80
+      targetPort: 80
       protocol: TCP
   type: NodePort
 
