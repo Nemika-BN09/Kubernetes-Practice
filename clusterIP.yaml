@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: clusterIp-deployment
+  name: clusterip-deployment
 spec:
   replicas: 3
   selector: 
@@ -21,7 +21,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: clusterIp-service
+  name: clusterip-service
 spec:
   ports:
     - port: 2000
