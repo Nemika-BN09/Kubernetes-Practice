@@ -12,19 +12,19 @@ spec:
     - http:
         paths: 
           - path: /nginx(/|$)(.*)
-            pathType: prefix
+            pathType: Prefix
             backend: 
               service:
                 name: nginx-svc
                 port: 80
           - path: /httpd(/|$)(.*)
-            pathType: prefix
+            pathType: Prefix
             backend:
               service:
                 name: httpd-svc
                 port: 80
           - path: /(/|$)(.*)
-            pathType: prefix
+            pathType: Prefix
             backend:
               service:
                 name: nginx-svc
